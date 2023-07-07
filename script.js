@@ -1,4 +1,20 @@
 const container = document.querySelector('.card-container');
+const showFormBtn = document.querySelector('.show-form');
+const form = document.querySelector('form');
+const inputTitle = document.getElementById('title');
+const inputAuthor = document.getElementById('author');
+const inputPages = document.getElementById('pages');
+const inputRead = document.getElementById('read');
+const submitBook = document.querySelector('.submit-btn');
+submitBook.addEventListener('click', (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+})
+
+showFormBtn.addEventListener('click', (e) => {
+   form.classList.toggle('display-grid');
+})
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -10,6 +26,10 @@ function Book(title, author, pages, read) {
 };
   
 function addBookToLibrary(title, author, pages, read) {
+    title = inputTitle.value;
+    author = inputAuthor.value;
+    pages = inputPages.value;
+    read = inputRead.value;
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
     container.textContent = '';
@@ -46,4 +66,4 @@ function displayBook() {
     
     }
 
-}
+};
