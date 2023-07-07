@@ -1,0 +1,12 @@
+.display-none{
+    display: none;
+}
+
+.display-grid {
+    display: grid;
+}
+
+.submit-btn {
+    width: 90px;
+   
+}
