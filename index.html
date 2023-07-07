@@ -8,7 +8,39 @@
 </head>
 <body>
     <h2>Library</h2>
+    <button class="show-form">Add</button>
+    <div class="library-form">
+        <form method="post" class="display-none" >
+            <div class="row">
+                <label>
+                    <span>Title:</span>
+                    <input type="text" name="book_title" id="title">
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <span>Author:</span>
+                    <input type="text" name="book_author" id="author">
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <span>Pages:</span>
+                    <input type="number" name="book_pages" id="pages">
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <span>Read:</span>
+                    <input type="text" name="book_read" id="read">
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
     <div class="card-container"></div>
+    
+
 
     <script src="./script.js"></script>
 </body>
