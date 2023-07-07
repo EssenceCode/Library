@@ -6,6 +6,7 @@ const inputAuthor = document.getElementById('author');
 const inputPages = document.getElementById('pages');
 const inputRead = document.getElementById('read');
 const submitBook = document.querySelector('.submit-btn');
+
 submitBook.addEventListener('click', (e) => {
     e.preventDefault();
     addBookToLibrary();
@@ -43,23 +44,29 @@ function displayBook() {
         const card = document.createElement('div');
         card.classList.add('card');
         const bookTitle = document.createElement('p');
-        bookTitle.classList.add('bookTitle')
+        bookTitle.classList.add('bookTitle');
         const bookAuthor = document.createElement('p');
-        bookAuthor.classList.add('bookAuthor')
+        bookAuthor.classList.add('bookAuthor');
         const bookPages = document.createElement('p');
-        bookPages.classList.add('bookPages')
+        bookPages.classList.add('bookPages');
         const bookRead = document.createElement('p');
-        bookRead.classList.add('bookRead')
-
+        bookRead.classList.add('bookRead');
+        const removeBook = document.createElement('button');
+       
         bookTitle.textContent = `Title: ${myLibrary[i].title}`;
         bookAuthor.textContent = `Author: ${myLibrary[i].author}`;
         bookPages.textContent = `Pages: ${myLibrary[i].pages}`;
         bookRead.textContent = `Read: ${myLibrary[i].read}`;
-
+        removeBook.textContent = 'Remove';
+        removeBook.addEventListener('click', (e) => {
+            card.textContent = '';
+        })
         card.appendChild(bookTitle);
         card.appendChild(bookAuthor);
         card.appendChild(bookPages);
         card.appendChild(bookRead);
+        card.appendChild(removeBook);
+
 
         container.appendChild(card);
 
