@@ -8,34 +8,42 @@
 </head>
 <body>
     <h2>Library</h2>
-    <button class="show-form">Add</button>
+    <button class="show-form"><span></span></button>
     <div class="library-form">
         <form method="post" class="display-none" >
             <div class="row">
                 <label>
-                    <span>Title:</span>
-                    <input type="text" name="book_title" id="title" required>
+                    <!-- <span>Title:</span> -->
+                    <input type="text" name="book_title" id="title" placeholder="Title" required>
                 </label>
             </div>
             <div class="row">
                 <label>
-                    <span>Author:</span>
-                    <input type="text" name="book_author" id="author" required>
+                    <!-- <span>Author:</span> -->
+                    <input type="text" name="book_author" id="author" placeholder="Author" required>
                 </label>
             </div>
             <div class="row">
                 <label>
-                    <span>Pages:</span>
-                    <input type="number" name="book_pages" id="pages" required>
+                    <!-- <span>Pages:</span> -->
+                    <input type="number" name="ifread" id="pages" min="1" placeholder="Pages" required>
                 </label>
             </div>
             <div class="row">
-                <label>
-                    <span>Read:</span>
-                    <input type="checkbox" name="book_read" id="read" value="yes" required>
-                </label>
+             
+                <label
+                >Read?
+                <input type="radio" id="read-yes" name="ifread" value="yes" /><label
+                  for="not-read"
+                  >Yes</label
+                >
+                <input type="radio" id="read-no" name="ifread" value="no" /><label
+                  for="read"
+                  >No</label
+                >
+              </label>
             </div>
-            <button type="submit" class="submit-btn">Submit</button>
+            <div class="row"><button type="submit" class="submit-btn">Submit</button></div>
         </form>
     </div>
     <div class="card-container"></div>
