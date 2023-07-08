@@ -1,15 +1,13 @@
 const container = document.querySelector('.card-container');
 const showFormBtn = document.querySelector('.show-form');
 const form = document.querySelector('form');
-const inputTitle = document.getElementById('title');
-const inputAuthor = document.getElementById('author');
-const inputPages = document.getElementById('pages');
-const inputRead = document.getElementById('read');
 const submitBook = document.querySelector('.submit-btn');
 
 submitBook.addEventListener('click', (e) => {
     e.preventDefault();
     addBookToLibrary();
+   form.classList.toggle('display-grid');
+
 })
 
 showFormBtn.addEventListener('click', (e) => {
@@ -34,10 +32,18 @@ function Book(title, author, pages, read) {
 };
   
 function addBookToLibrary(title, author, pages, read) {
+    
+    const inputTitle = form.elements["title"];
+    const inputAuthor = form.elements["author"];
+    const inputPages = form.elements["pages"];
+    const inputRead = form.elements["ifread"];
+    
     title = inputTitle.value;
     author = inputAuthor.value;
     pages = inputPages.value;
     read = inputRead.value;
+    // read = inputReadNo.value;
+
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
     container.textContent = '';
@@ -50,16 +56,16 @@ function displayBook() {
         myLibrary[i];
         const card = document.createElement('div');
         card.classList.add('card');
+        card.setAttribute('data-index', i)
+        // card.setAttribute('card-attribute','card')
         const bookTitle = document.createElement('p');
-        bookTitle.classList.add('bookTitle');
         const bookAuthor = document.createElement('p');
-        bookAuthor.classList.add('bookAuthor');
         const bookPages = document.createElement('p');
-        bookPages.classList.add('bookPages');
         const bookRead = document.createElement('p');
-        bookRead.classList.add('bookRead');
         const removeBook = document.createElement('button');
         const readStatus = document.createElement('button');
+        removeBook.classList.add('book-remove');
+        readStatus.classList.add('book-add');
 
        
         bookTitle.textContent = `Title: ${myLibrary[i].title}`;
@@ -70,13 +76,12 @@ function displayBook() {
         readStatus.textContent = 'Read';
 
         removeBook.addEventListener('click', (e) => {
-            card.textContent = '';
-        });
-        readStatus.addEventListener('click', (e) => {
-            bookRead.textContent = `Read: ${myLibrary[i].readStatus()}`
-            console.log(myLibrary[i].read)
-        })
+            // container.removeChild(e.target.parentElement);
+            // console.log(card.getAttribute('data-index'))    
 
+        
+        });
+       
         card.appendChild(bookTitle);
         card.appendChild(bookAuthor);
         card.appendChild(bookPages);
