@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h2>Library</h2>
+    <div class="header">
+        <h2>Library</h2>
+    </div>
     <button class="show-form"><span></span></button>
     <div class="library-form">
         <form method="post" class="display-none" >
@@ -26,24 +28,24 @@
             <div class="row">
                 <label>
                     <!-- <span>Pages:</span> -->
-                    <input type="number" name="ifread" id="pages" min="1" placeholder="Pages" required>
+                    <input type="number" name="book_page" id="pages" placeholder="Pages" required>
                 </label>
             </div>
             <div class="row">
-             
-                <label
-                >Read?
-                <input type="radio" id="read-yes" name="ifread" value="yes" /><label
-                  for="not-read"
-                  >Yes</label
-                >
-                <input type="radio" id="read-no" name="ifread" value="no" /><label
-                  for="read"
-                  >No</label
-                >
-              </label>
+                <fieldset>
+                    <legend>Read</legend>
+                    <label>
+                        <span>Yes</span>
+                        <input type="radio" id="read-yes" name="book_read" value="yes"/>
+                    </label>
+                    <label>
+                        <span>No</span>
+                        <input type="radio" id="read-no" name="book_read" value="no"/>
+                    </label>
+                </fieldset>
             </div>
-            <div class="row"><button type="submit" class="submit-btn">Submit</button></div>
+            <div class="row">
+                <button type="submit" class="submit-btn">Submit</button></div>
         </form>
     </div>
     <div class="card-container"></div>
