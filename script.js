@@ -29,6 +29,8 @@ function Book(title, author, pages, read) {
             return this.read = 'yes';
         }
     }
+   
+   
 };
   
 function addBookToLibrary(title, author, pages, read) {
@@ -36,7 +38,7 @@ function addBookToLibrary(title, author, pages, read) {
     const inputTitle = form.elements["title"];
     const inputAuthor = form.elements["author"];
     const inputPages = form.elements["pages"];
-    const inputRead = form.elements["ifread"];
+    const inputRead = form.elements["book_read"];
     
     title = inputTitle.value;
     author = inputAuthor.value;
@@ -46,18 +48,17 @@ function addBookToLibrary(title, author, pages, read) {
 
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
-    container.textContent = '';
     displayBook();
 
 };
 
 function displayBook() {
+    container.textContent = '';
     for (let i = 0; i < myLibrary.length; i++) {
-        myLibrary[i];
+        myLibrary[i].id = i;
         const card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('data-index', i)
-        // card.setAttribute('card-attribute','card')
+        card.setAttribute('card-index', `${i}`)
         const bookTitle = document.createElement('p');
         const bookAuthor = document.createElement('p');
         const bookPages = document.createElement('p');
@@ -76,10 +77,16 @@ function displayBook() {
         readStatus.textContent = 'Read';
 
         removeBook.addEventListener('click', (e) => {
-            // container.removeChild(e.target.parentElement);
-            // console.log(card.getAttribute('data-index'))    
-
-        
+            const bookCard = e.target.closest('div');
+            const id = bookCard.getAttribute('card-index');
+            myLibrary = myLibrary.filter(book => book.id !== Number(id));
+            bookCard.remove()
+            console.log(bookCard)
+            console.log(id)
+            console.log(myLibrary)
+        });
+        readStatus.addEventListener('click', (e) => {
+            bookRead.textContent = `Read: ${myLibrary[i].readStatus()}`
         });
        
         card.appendChild(bookTitle);
@@ -97,3 +104,4 @@ function displayBook() {
     }
 
 };
+
