@@ -121,11 +121,17 @@ input[type='radio'] {
 
 .card {
     background-color: var(--card-backgrnd-color);
+    color: blueviolet;
     padding: 25px;
+
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card > p {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid burlywood;
 }
 
 .book-add, .book-remove {
@@ -135,6 +141,8 @@ input[type='radio'] {
     color: var(--font-color);
     border: 1px solid orchid;
     border-radius: 6px;
+    padding: 5px;
+    width: 25%;
 }
 
 .book-add:hover, .book-remove:hover {
