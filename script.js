@@ -1,11 +1,16 @@
 const container = document.querySelector('.card-container');
 const showFormBtn = document.querySelector('.show-form');
 const form = document.querySelector('form');
+const inputTitle = form.elements["book_title"];
+const inputAuthor = form.elements["book_author"];
+const inputPages = form.elements["book_pages"];
+const inputRead = form.elements["book_read"];
 const submitBook = document.querySelector('.submit-btn');
 
 submitBook.addEventListener('click', (e) => {
     e.preventDefault();
     addBookToLibrary();
+    clearForm();
    form.classList.toggle('display-grid');
 
 })
@@ -34,12 +39,6 @@ function Book(title, author, pages, read) {
 };
   
 function addBookToLibrary(title, author, pages, read) {
-    
-    const inputTitle = form.elements["title"];
-    const inputAuthor = form.elements["author"];
-    const inputPages = form.elements["pages"];
-    const inputRead = form.elements["book_read"];
-    
     title = inputTitle.value;
     author = inputAuthor.value;
     pages = inputPages.value;
@@ -77,13 +76,11 @@ function displayBook() {
         readStatus.textContent = 'Read';
 
         removeBook.addEventListener('click', (e) => {
-            const bookCard = e.target.closest('div');
+            const bookCard = e.target.parentElement
             const id = bookCard.getAttribute('card-index');
             myLibrary = myLibrary.filter(book => book.id !== Number(id));
-            bookCard.remove()
-            console.log(bookCard)
-            console.log(id)
-            console.log(myLibrary)
+            bookCard.remove();
+            console.log(book.id !== Number(id))
         });
         readStatus.addEventListener('click', (e) => {
             bookRead.textContent = `Read: ${myLibrary[i].readStatus()}`
@@ -105,3 +102,8 @@ function displayBook() {
 
 };
 
+function clearForm() {
+    inputTitle.value = '';
+    inputAuthor.value = '';
+    inputPages.value = '';
+}
