@@ -142,7 +142,7 @@ input[type='radio'] {
     border: 1px solid orchid;
     border-radius: 6px;
     padding: 5px;
-    width: 25%;
+   
 }
 
 .book-add:hover, .book-remove:hover {
