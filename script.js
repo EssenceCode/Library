@@ -6,7 +6,8 @@ const inputAuthor = form.elements["book_author"];
 const inputPages = form.elements["book_pages"];
 const inputRead = form.elements["book_read"];
 const submitBook = document.querySelector('.submit-btn');
-
+const readYes = document.getElementById('read-yes');
+const readNo = document.getElementById('read-no')
 submitBook.addEventListener('click', (e) => {
     e.preventDefault();
     addBookToLibrary();
@@ -106,4 +107,10 @@ function clearForm() {
     inputTitle.value = '';
     inputAuthor.value = '';
     inputPages.value = '';
+    readYes.checked = false;
+    readNo.checked = false;
 }
+
+
+
+
