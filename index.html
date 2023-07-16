@@ -28,7 +28,7 @@
             <div class="row">
                 <label>
                     <!-- <span>Pages:</span> -->
-                    <input type="number" name="book_page" id="pages" placeholder="Pages" required>
+                    <input type="number" name="book_pages" id="pages" min="5" max="10000" step="10" placeholder="Pages" required>
                 </label>
             </div>
             <div class="row">
@@ -36,7 +36,7 @@
                     <legend>Read</legend>
                     <label>
                         <span>Yes</span>
-                        <input type="radio" id="read-yes" name="book_read" value="yes"/>
+                        <input type="radio" id="read-yes" name="book_read" value="yes" />
                     </label>
                     <label>
                         <span>No</span>
